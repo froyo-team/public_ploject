@@ -1,20 +1,12 @@
-<?php
-
-
-
-
-?>
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head> 
 	<title>QRHacker</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<script type="text/javascript" charset="utf-8" src="./js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./js/main.js"></script>
 	<link rel="stylesheet" type="text/css" href="./css/main.css">
-<style type="text/css">
-
-
-
-</style>
+	
+	
 </head>
 <body>
 	<div id="head">
@@ -64,8 +56,22 @@
 				<h4> YOU INPUT<small>start with http://</small></h4>
 			</div>
 			<div class="box-content">
-				<textarea id="url" spellcheck="false" class="watching">http://</textarea>
+				<textarea id="url" spellcheck="false" class="info-detail" >http://</textarea>
 				<p class="info">Measure scans on QR codes and get detailed real-time statistics! <a href="http://www.qrhacker.com/business/" class="click-track" data-action="upgrade" data-src="left-no-subsc-small-url">Learn more</a></p>
+			<form id="info_input" method="POST" action="makeQrCode.php">
+				<script type="text/javascript">
+				$("#submit_info").click(
+					function(){
+						alert('事件生效啦！你点击了新按钮');
+					}
+				);
+				</script>
+				<input name="type" type="hidden" id="qr_type">
+				<input name="info" type="hidden" id="qr_info">
+
+				<a class="button submit-form" id="submit_info">提交</a>
+			</form>
+
 			</div>
 
 		</div>
@@ -73,12 +79,13 @@
 			<div class="welcome">
 
 			</div>
+			<div class="code-img">
+				<img id="qrcode_img" src="makeQrCode.php"/>
+			</div>
 		</div>
 		<div class="right">
-
-
 		</div>
-
+                  
 	</div>
 
 
