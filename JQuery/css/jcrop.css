@@ -1,3 +1,7 @@
+#content_jcrop {
+  width: 950px;
+  margin: 0 auto;
+}
 #target {
   max-width: 500px;
   max-height: 500px;
@@ -25,7 +29,11 @@
   right: -280px;
 }
 #preview-pane .preview-container {
-  width: 250px;
-  height: 250px;
+  width: 120px;
+  height: 120px;
   overflow: hidden;
+}
+#preview-pane .preview-container #crop_img {
+  min-width: 120px;
+  min-height: 120px;
 }

@@ -10,7 +10,6 @@ $(function(){
 
         xsize = $pcnt.width(),
         ysize = $pcnt.height();
-
         console.log('init',[xsize,ysize]);
         $('#target').Jcrop({
           onChange: updatePreview,
@@ -50,16 +49,19 @@ $(function(){
     $('#w').val(c.w);
     $('#h').val(c.h);
   };
-
-    function ajaxFileUpload()
+  
+    function ajaxToFileUpload()
   {
+    var postData=new Array()
+        postData[0]="up_image";
     $.ajaxFileUpload
     (
       {
-        url:'../libs/AjaxFileUploaderV2.1/doajaxfileupload.php', 
+        url:'./jcrop.php', 
         secureuri:false,
         fileElementId:'fileToUpload',
         dataType: 'json',
+        data:postData,
         success: function (data, status)
         {
           if(typeof(data.error) != 'undefined')
@@ -70,8 +72,9 @@ $(function(){
               return false;
             }else
             {
-              $('#hidden_img').val(data.image);
-              ajaxQrCode();
+             
+               $('#crop_img').attr('src','data:image/png;base64,'+data.image);
+             $('#target').attr('src','data:image/png;base64,'+data.image);
               return true;
             }
           }
@@ -80,4 +83,10 @@ $(function(){
     );
     return true;
   }  
+
+  $('#up_img').live('click',function(){
+  //ajaxToFileUpload();
+    $('#up_img_form').submit();
+  });
+
   });

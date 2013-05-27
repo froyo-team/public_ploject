@@ -45,6 +45,46 @@ class fileAction
 		closedir($handle);  
 	}
 
+	public function getLatestFile($dir)
+	{
+		$handle=opendir($dir);
+		$i=0;
+		$prev_file_time =  strtotime('20120101000000');
+		$path  = '';
+		while($file=readdir($handle))   
+		{
+			if($file!= "." && $file!= "..")
+			{
+				$file_time = explode('_', $file);
+				if(count($file_time)>1)
+				{
+					$now_file_time = strtotime(date($file_time[0]));
+					if($now_file_time>$prev_file_time)
+					{
+						$path = $dir.'/'.$file;
+						$prev_file_time = $now_file_time;
+					}						
+				}
+			}
+		}
+		closedir($handle);  
+		return $path;
+
+	}
+	public function imgCreate($src)
+	{
+		$image_type = pathinfo($src);
+		//$image_type = $iamge_type['extension'];
+		$image_type = $image_type['extension'];
+		switch ($image_type) {
+			case 'png':$image = imagecreatefrompng($src);break;
+			case 'jpg':
+			case 'jpeg':$image = imagecreatefromjpeg($src);break;
+			case 'gif':$image = imagecreatefromgif($src);break;	
+			default:	imagecreatefrompng($src);
+		}
+		return $image;
+	}
 	public function saveUploadImageWithSameRation($maxSize = array())
 	{
 		$file = $this->file;

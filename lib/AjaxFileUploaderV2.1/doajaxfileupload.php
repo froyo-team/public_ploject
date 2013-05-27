@@ -14,10 +14,11 @@ require('fileAction.php');
 	{		
 			$msg .= " File Name: " . $_FILES['fileToUpload']['name'] . ", ";
 			$msg .= " File Size: " . @filesize($_FILES['fileToUpload']['tmp_name']);
+
 			$fileAction = new fileAction();
 			$fileAction->file = $_FILES['fileToUpload'];
-			$fileAction->uploadPath = '../../upload_files/temp_img';
-			$file_path = $fileAction->saveUploadImageWithSameRation(array('height'=>100,'width'=>100));
+			$fileAction->uploadPath = '../../picture/qiqi.jpg';
+			$file_path = $fileAction->saveUploadImageWithSameRation(array('height'=>200,'width'=>200));
 			@unlink($_FILES['fileToUpload']);	
 	echo "{";
 	echo				"error: '" . $error . "',\n";
