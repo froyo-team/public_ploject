@@ -1,0 +1,56 @@
+body {
+  margin: 0px 0px;
+  font: 12px Helvetica, Arial, sans-serif;
+  line-height: 1.62;
+}
+body h1,
+body h2,
+body h3,
+body h4 {
+  margin: 0px 0px;
+}
+.frament {
+  padding: 0px 0px 0px 0px;
+  margin-top: 20px;
+}
+.frament .header {
+  border-bottom: 1px solid #ffcdfd;
+  padding-bottom: 15px;
+}
+.frament .header .user-icon {
+  float: left;
+  margin-left: 25px;
+  margin-right: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.frament .header .user-icon img {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #fdd;
+}
+.frament .header .menue .user-name {
+  display: inline;
+}
+.frament .header .menue .user-name h1 {
+  display: block;
+  padding: 0 0 4px 0;
+  margin-bottom: -8px;
+}
+.frament .header .menue .menue-ban a:link {
+  color: #37a;
+  text-decoration: none;
+}
+.frament .header .menue .menue-ban a:hover {
+  color: #fff;
+  background: #37a;
+  text-decoration: none;
+}
+.frament .header .menue .menue-ban a:visited {
+  color: #37a;
+  text-decoration: none;
+}
+.frament .wrap {
+  width: 960px;
+  margin: 0px auto;
+}
